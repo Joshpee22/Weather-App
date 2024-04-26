@@ -10,9 +10,14 @@ async function checkWeather() {
         }
         const data = await response.json();
         console.log(data);
+
+        document.querySelector(".city").innerHTML = data.name;
+        document.querySelector(".temp").innerHTML = data.main.temp;
+        document.querySelector(".humidity").innerHTML = data.main.humidity;
+        document.querySelector(".wind").innerHTML = data.wind.speed;
     } catch (error) {
         console.error('Error fetching weather data:', error);
     }
 }
 
-checkWeather()
+checkWeather();
